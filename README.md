@@ -6,7 +6,7 @@ Building on my previous introductory exploration on the Go programming language 
 
 ## Overview
 
-This repo extends the topics covered in the [OpenPair: Golang Intro](https://github.com/MaterDev/OpenPair_golang-intro_02). Accompanied by a [live stream video](https://www.youtube.com/watch?v=Rc9ZF_3fuA0), it provides an interactive and in-depth exploration of the following concepts:
+This repo extends the topics covered in the [OpenPair: Golang Intro](https://github.com/MaterDev/OpenPair_golang-intro). Accompanied by a [live stream video](https://www.youtube.com/watch?v=Rc9ZF_3fuA0), it provides an interactive and in-depth exploration of the following concepts:
 
 1. **Arrays**: Fixed-size, ordered collections of elements of a single type. The script shows how to declare, initialize, and manipulate arrays, including multi-dimensional arrays.
 2. **Slices**: Dynamic and flexible segments of an array. The script explores slice creation, appending elements, and creating sub-slices, illustrating their dynamic nature compared to arrays.
@@ -21,7 +21,4 @@ In addition to the resources provided in the first tutorial, here are some more 
 - [Go Wiki](https://github.com/golang/go/wiki): A collection of resources and community-contributed information.
 - [Go Modules](https://blog.golang.org/using-go-modules): Understanding Go's dependency management system.
 - [Advanced Go Programming](https://advancedgolang.com/): Resources and articles for more experienced Go developers.
-
-## Getting Started
-
-To get the most out of this tutorial, it's recommended that you have a basic understanding of Go, ideally having completed the [first part](https://github.com/MaterDev/OpenPair_golang-intro_02) of this tutorial series. You can clone this repository and follow along with the [accompanying YouTube live stream](https://www.youtube.com/watch?v=Rc9ZF_3fuA0) for a practical, hands-on experience.
+  
