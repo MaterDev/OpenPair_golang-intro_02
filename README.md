@@ -1,28 +1,27 @@
-# OpenPair: Golang Intro
+# OpenPair: Golang Intro 02
 
 ![Cover Image](./cover.png)
 
-Welcome to the "OpenPair: Golang Intro" tutorial! This tutorial is designed to provide you with a fundamental introduction to the Go programming language (Golang). Whether you're new to programming or transitioning from another language, this tutorial will help you grasp the basics of Go.
+Building on my previous introductory exploration on the Go programming language (Golang), this repo delves deeper into some of the core concepts of Go. *This is part of a series to document and share my learning journey and for personal accountability. I hope you find it useful!*
 
-## Contents
+## Overview
 
-1. **Variables and Data Types**: Learn how to declare and use variables, as well as explore various data types supported by Go.
-2. **Constants**: Understand how to declare and use constants in your Go programs.
-3. **Control Structures**: Explore conditional statements (if-else) and loops (for) to control the flow of your code.
-4. **Functions**: Learn how to define and use functions to organize your code into reusable blocks.
-5. **Arrays and Slices**: Dive into arrays and slices, which are essential for working with collections of data.
-6. **Maps**: Discover how to work with key-value pairs using Go's map data structure.
-7. **Structs**: Explore structs to create custom data types with named fields.
-8. **Error Handling**: Understand Go's error handling mechanism to manage exceptional situations.
-9. **Defer and Panic**: Learn about the `defer` statement for clean-up tasks and the `panic` function for critical errors.
+This repo extends the topics covered in the [OpenPair: Golang Intro](https://github.com/MaterDev/OpenPair_golang-intro_02). Accompanied by a [live stream video](https://www.youtube.com/watch?v=Rc9ZF_3fuA0), it provides an interactive and in-depth exploration of the following concepts:
+
+1. **Arrays**: Fixed-size, ordered collections of elements of a single type. The script shows how to declare, initialize, and manipulate arrays, including multi-dimensional arrays.
+2. **Slices**: Dynamic and flexible segments of an array. The script explores slice creation, appending elements, and creating sub-slices, illustrating their dynamic nature compared to arrays.
+3. **Maps**: Key-value pairs that provide a versatile way to store and manage data. The demonstration includes map creation, adding and removing elements, and iterating over maps.
+4. **Structs**: Custom data types that allow the grouping of multiple fields under a single unit. The script illustrates defining structs, creating instances, and modifying their fields.
 
 ## Useful Resources
 
-To deepen your understanding of Go and further your learning, here are some useful resources:
+In addition to the resources provided in the first tutorial, here are some more to deepen your understanding of Go:
 
-- [Official Go Documentation](https://golang.org/doc/): The official documentation provides comprehensive information about the language, packages, and tools.
-- [A Tour of Go](https://tour.golang.org/welcome/1): An interactive tour of Go that covers the basics with hands-on coding exercises.
-- [Effective Go](https://golang.org/doc/effective_go.html): A guide to writing clear and idiomatic Go code.
-- [Go by Example](https://gobyexample.com/): A collection of examples that demonstrate Go's features and concepts.
-- [Go Playground](https://play.golang.org/): An online Go environment where you can write and run Go code snippets.
-- [Go Forum](https://forum.golangbridge.org/): An active community forum for asking questions and discussing Go-related topics.
+- [Go Blog](https://blog.golang.org/): Official Go blog with articles on best practices, new features, and community insights.
+- [Go Wiki](https://github.com/golang/go/wiki): A collection of resources and community-contributed information.
+- [Go Modules](https://blog.golang.org/using-go-modules): Understanding Go's dependency management system.
+- [Advanced Go Programming](https://advancedgolang.com/): Resources and articles for more experienced Go developers.
+
+## Getting Started
+
+To get the most out of this tutorial, it's recommended that you have a basic understanding of Go, ideally having completed the [first part](https://github.com/MaterDev/OpenPair_golang-intro_02) of this tutorial series. You can clone this repository and follow along with the [accompanying YouTube live stream](https://www.youtube.com/watch?v=Rc9ZF_3fuA0) for a practical, hands-on experience.

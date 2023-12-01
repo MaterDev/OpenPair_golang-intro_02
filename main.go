@@ -1,190 +1,122 @@
 package main
 
-// Single Line Comment
+import "fmt"
+
 /*
-	Block Comment
+    Key Concepts Covered:
+
+    1. Arrays: Fixed-size, ordered collections of elements of a single type. The script shows how to declare, initialize, and manipulate arrays, including multi-dimensional arrays.
+	
+    2. Slices: Dynamic and flexible segments of an array. The script explores slice creation, appending elements, and creating sub-slices, illustrating their dynamic nature compared to arrays.
+
+    3. Maps: Key-value pairs that provide a versatile way to store and manage data. The demonstration includes map creation, adding and removing elements, and iterating over maps.
+
+    4. Structs: Custom data types that allow the grouping of multiple fields under a single unit. The script illustrates defining structs, creating instances, and modifying their fields.
 */
 
-import (
-	"fmt"
-	"os"
-)
+
+// Arrays in Go
+func demonstrateArrays() {
+    // Declaring an array of 10 integers. In Go, arrays are of fixed size.
+    // The type of elements (in this case 'int') and length (10) are part of the array's type.
+    var numbers [10]int 
+    for i := 0; i < len(numbers); i++ {
+        // Initializing each element of the array.
+        // Here, each element is assigned twice its index.
+        numbers[i] = i * 2 
+    }
+    // Printing the entire array to show the initialized values.
+    fmt.Println("Numbers array:", numbers)
+
+    // Demonstrating a multi-dimensional array, specifically a 3x3 matrix.
+    // Multi-dimensional arrays are essentially arrays of arrays.
+    var matrix [3][3]int
+    for i := 0; i < 3; i++ {
+        for j := 0; j < 3; j++ {
+            // Assigning a value based on the sum of row and column indices.
+            matrix[i][j] = i + j
+        }
+    }
+    // Printing the multi-dimensional array to show its structure.
+    fmt.Println("Matrix:", matrix)
+}
+
+// Slices in Go
+func demonstrateSlices() {
+    // Slices are similar to arrays but are resizable and more flexible.
+    // Here, we're creating a slice of strings with initial elements.
+    colors := []string{"Red", "Green", "Blue"}
+    // Printing the initial slice.
+    fmt.Println("Initial colors slice:", colors)
+
+    // Demonstrating the dynamic nature of slices by appending more elements.
+    moreColors := []string{"Yellow", "Purple", "Orange"}
+    // The append function returns a new slice containing the existing and new elements.
+    colors = append(colors, moreColors...)
+    // Printing the extended slice to show the added elements.
+    fmt.Println("Extended colors slice:", colors)
+
+    // Creating a sub-slice from the existing slice. Slices support the slice[low:high] syntax.
+    // This selects a range starting at 'low' index and ending just before the 'high' index.
+    subsetColors := colors[1:4] // Selects elements at index 1, 2, and 3.
+    // Printing the sub-slice to demonstrate slicing.
+    fmt.Println("Subset of colors:", subsetColors)
+}
+
+// Maps in Go
+func demonstrateMaps() {
+    // Maps are key-value pairs. They are similar to dictionaries in other languages.
+    // Here, we define a map with strings as keys and ints as values.
+    userAges := map[string]int{
+        "Alice": 28,
+        "Bob":   34,
+    }
+
+    // Adding a new key-value pair to the map.
+    // Maps are dynamic, and new pairs can be added at any time.
+    userAges["Charlie"] = 40
+    // Printing the map to show the newly added pair.
+    fmt.Println("User ages with Charlie added:", userAges)
+
+    // Deleting a key-value pair from the map using the 'delete' built-in function.
+    delete(userAges, "Bob")
+    // Printing the map to show the state after deletion.
+    fmt.Println("User ages after deleting Bob:", userAges)
+}
+
+// Structs in Go
+func demonstrateStructs() {
+    // A struct is a composite type that groups together variables under a named unit.
+    // Here, we define a 'Person' struct with 'Name' and 'Age' fields.
+    type Person struct {
+        Name string
+        Age  int
+    }
+
+    // Creating a slice of 'Person' structs with initial values.
+    people := []Person{
+        {Name: "Alice", Age: 28},
+        {Name: "Bob", Age: 34},
+    }
+
+    // Adding a new 'Person' to our slice of structs.
+    // Structs can be added to slices like any other data type.
+    people = append(people, Person{Name: "Charlie", Age: 40})
+    // Printing the slice of structs to show all the persons.
+    fmt.Println("People slice:", people)
+
+    // Modifying a field in one of our structs.
+    // Here, we're updating Alice's age. Struct fields are accessed using a dot (.)
+    people[0].Age = 29
+    // Printing the updated slice to show the changed age.
+    fmt.Println("Updated people slice:", people)
+}
 
 func main() {
-	// All code will basically be a consequence of what happens inside of here!
-	fmt.Println("Welcome to Golang Introduction! Woohoo!") 
-	fmt.Println("---------------------------------------") 
-
-	fmt.Println("\n1. Variables and Data Types")
-
-	// In GoLang, you declare variables using the `var` keyword.
-		// When you declare with `var`, the value can change!
-	var name string // declaring a variable of type `string`, named `name`
-	name = "John" // Assign the value to `name`
-	fmt.Println("Name:", name)
-
-	// You can declare and assign in one line.
-	age := 30
-	fmt.Println("Age:", age)
-
-	var isStudent bool = false
-	fmt.Println("Is Student:", isStudent)
-
-	// Constants
-		// Constant variables cannot change their value.
-	fmt.Println("\n2. Constants")
-	const pi float64 = 3.14159265359
-	fmt.Println("Value of Pi:", pi)
-
-	// Control Structures
-	fmt.Println("\n3. Control Structures")
-	// Conditionals (if-else)
-	x := 10
-	if x > 5 {
-		fmt.Println("x is greater than 5")
-	} else {
-		fmt.Println("x is not greater than 5")
-	}
-
-	// Loops (for)
-	fmt.Println("\n4. Loops")
-	// Loop has 3 parts:
-		// Intialization of the index (i)
-		// Condition to control how long the loop goes
-		// Increment the loop so that it continues forward according to some formula
-	for i := 0; i < 5; i++ {
-		fmt.Println("Iteration:", i)
-	}
-
-	// Functions
-	fmt.Println("\n5. Functions")
-	// Function that will take in a name and return a sentence, which is assigned to a variable.
-	greeting := greet("TacoCat")
-	fmt.Println(greeting)
-
-	// Arrays and Slices
-	fmt.Println("\n6. Arrays and Slices")
-	numbers := [5]int{1,2,3,4,5} // Declare an array with 5 integers
-	fmt.Println("Array:", numbers)
-	slice := numbers[0:5] // Slice will only include everything infront of the end index. (5, will get indexes including up to 4.)
-	fmt.Println("Slice", slice)
-
-	// Maps
-	fmt.Println("\n7. Maps")
-	// Maps store key-value pairs.
-
-	// To declare an empty map, use make()
-	// fruitMap := make(map[string]int)
-
-	// This is how you create a literal map, with assigned KV pairs upon creation.
-	fruitMap := map[string]int{
-		"apple": 5,
-		"orange": 10,
-	}
-
-	// Create a new element in the map
-	fruitMap["banana"] = 7
-	// Update an existing element in the map
-	fruitMap["apple"] =  6
-
-	// Loop over all key-value pairs in a map
-	for fruit, quantity := range fruitMap {
-		fmt.Printf("%s: %d\n",fruit, quantity)
-	} 
-
-	// To check to see if something exists inside of a map, for condition. (Good for validation.)
-	if qty, ok := fruitMap["apple"]; ok {
-		fmt.Println("Apple Quantity:", qty, ok)
-	}
-
-	fmt.Println("About to delete 'orange'", fruitMap)
-	// Delete an element from a map
-	delete(fruitMap, "orange")
-	fmt.Println(fruitMap)
-
-	// Structs
-	fmt.Println("\n8. Structs")
-	// Structs allow you to create your own custom data types.
-	type Person struct {
-		Name string
-		Age int
-		IsHuman bool
-	}
-
-	person := Person{Name: "Charlie", Age: 25, IsHuman: false}
-	fmt.Println("Person", person)
-
-	// Error Handling
-	fmt.Println("\n9. Error Handling")
-	// Go uses errors for handling exceptional situations
-	result, err := divide(10, 2)
-	
-	if err != nil {
-		// If err is `nil` that means there is an error.
-		fmt.Println("Error:",err)
-	} else {
-		// If err is `nil` then there i no error, which means the function ran without an issue.
-		fmt.Println("Result:", result)
-	}
-
-	// Defer and Panic
-	fmt.Println("\n10. Defer and Panic")
-
-	// Panic will indicate a critical error
-	// Uncomment the lines below:
-		// value := -5
-		// if value < 0 {
-		// 	fmt.Println("Recieved a negative value. This is a critical error! ⚠️")
-		// 	panic("Critical Error Occured!")
-		// }
-
-
-	// Defer is used to schedule a functuion call to run after the surrounding function returns.
-	defer fmt.Println("Defered statement")
-
-	file, err := os.Create("example.txt")
-	if err != nil {
-		fmt.Println("Error creating file:", err)
-		return
-	}
-	// Defer is used for clean-up orperations like closing a file.
-	defer file.Close() // This will close the file when main() exists
-	// This defer will happen regardless of whether there is an error or not.
-
-	fmt.Println("Regular statement")
-
-
-	fmt.Println("\n-----------------")
-	fmt.Println("End of GoLang Intro")
-	fmt.Println()	
-}
-
-/*
-This function takes in a name and will return a sentence with the incoming name as a greeting.
-args:
-	name string
-return: string
-*/
-func greet(name string) string {
-	return "Hello, " + name + "!"
-}
-
-/*
-This function will perform division with two numbers
-
-args:
-	a any
-	b float64
-returns: float64, error
-*/
-func divide(a, b float64) (float64, error) {
-	// Check if the divisor (b) is zero.
-	if b == 0 {
-		// If it is, return an error with a descriptive message
-		// The `fmt.Errorf` function will create an error with a specific given message
-		return 0, fmt.Errorf("division by zero")
-	}
-
-	// If divisor is not zero, then perform the division and return the result. (Error will be nil)
-	return a/b, nil
+    // Calling our demonstration functions to show different concepts in action.
+    // Each function will print its results to the console.
+    demonstrateArrays()   // Shows fixed-size arrays and multi-dimensional arrays.
+    demonstrateSlices()   // Demonstrates dynamic slices, append function, and sub-slicing.
+    demonstrateMaps()     // Covers maps with key-value pairs, adding, and deleting elements.
+    demonstrateStructs()  // Explains struct definition and manipulation in a slice of structs.
 }
